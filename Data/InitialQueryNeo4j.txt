@@ -1,0 +1,29 @@
+create (a2245:Player {name:'Bryan Reynolds',pos:'DF',age:20.0,goals:0.0,assists:0.0,PasTotCmp:100.0,recov:0.0,aerialWon:0.0,league:'Serie A'})
+create (a1758:Player {name:'Arial Mendy',pos:'DFFW',age:27.0,goals:0.0,assists:0.0,PasTotCmp:78.5,recov:6.82,aerialWon:50.0,league:'Ligue 1'})
+create (a2452:Player {name:'Stefano Sensi',pos:'MF',age:26.0,goals:0.0,assists:0.0,PasTotCmp:85.5,recov:10.0,aerialWon:50.0,league:'Serie A'})
+create (a485:Player {name:'Samu Castillejo',pos:'FWMF',age:27.0,goals:0.0,assists:0.0,PasTotCmp:82.4,recov:7.14,aerialWon:42.9,league:'Serie A'})
+create (a1746:Player {name:'Filippo Melegoni',pos:'FWMF',age:23.0,goals:0.09,assists:0.0,PasTotCmp:69.5,recov:9.17,aerialWon:23.1,league:'Serie A'})
+create (a1286:Player {name:'Jofre',pos:'MFDF',age:20.0,goals:0.0,assists:5.0,PasTotCmp:75.0,recov:0.0,aerialWon:100.0,league:'La Liga'})
+create (a2226:Player {name:'David Raum',pos:'DF',age:24.0,goals:0.1,assists:0.36,PasTotCmp:74.2,recov:8.01,aerialWon:48.6,league:'Bundesliga'})
+create (a68:Player {name:'Dele Alli',pos:'MF',age:26.0,goals:0.0,assists:0.0,PasTotCmp:75.0,recov:10.3,aerialWon:42.1,league:'Premier League'})
+create (a2207:Player {name:'Jesuran Rak Sakyi',pos:'FWMF',age:19.0,goals:0.0,assists:0.0,PasTotCmp:83.3,recov:5.56,aerialWon:0.0,league:'Premier League'})
+create (a151:Player {name:'Kaan Ayhan',pos:'DF',age:27.0,goals:0.07,assists:0.0,PasTotCmp:90.7,recov:8.2,aerialWon:51.5,league:'Serie A'})
+create (a1880:Player {name:'Yunus Musah',pos:'MFFW',age:19.0,goals:0.07,assists:0.0,PasTotCmp:73.4,recov:4.93,aerialWon:42.2,league:'La Liga'})
+create (a542:Player {name:'Alexis Claude-Maurice',pos:'MF',age:23.0,goals:0.0,assists:0.87,PasTotCmp:88.0,recov:8.26,aerialWon:0.0,league:'Ligue 1'})
+create (a671:Player {name:'Merih Demiral',pos:'DF',age:24.0,goals:0.05,assists:0.09,PasTotCmp:87.3,recov:9.2,aerialWon:72.1,league:'Serie A'})
+create (a318:Player {name:'Yves Bissouma',pos:'MF',age:25.0,goals:0.04,assists:0.09,PasTotCmp:89.7,recov:10.7,aerialWon:55.3,league:'Premier League'})
+create (a357:Player {name:'Edoardo Bove',pos:'MFFW',age:20.0,goals:1.25,assists:0.0,PasTotCmp:86.1,recov:10.0,aerialWon:0.0,league:'Serie A'})
+create (a2017:Player {name:'Alex Oxlade-Chamberlain',pos:'MFFW',age:28.0,goals:0.23,assists:0.11,PasTotCmp:78.9,recov:7.47,aerialWon:29.4,league:'Premier League'})
+create (a467:Player {name:'Irvin Cardona',pos:'FWMF',age:24.0,goals:0.27,assists:0.14,PasTotCmp:67.0,recov:4.39,aerialWon:28.1,league:'Ligue 1'})
+create (a322:Player {name:'Blanco',pos:'MF',age:21.0,goals:0.0,assists:0.0,PasTotCmp:94.4,recov:10.0,aerialWon:0.0,league:'La Liga'})
+create (a2414:Player {name:'Esteban Saveljich',pos:'DF',age:31.0,goals:0.0,assists:0.0,PasTotCmp:84.9,recov:6.46,aerialWon:64.8,league:'La Liga'})
+create (a1472:Player {name:'Aymeric Laporte',pos:'DF',age:28.0,goals:0.13,assists:0.0,PasTotCmp:94.7,recov:9.17,aerialWon:67.0,league:'Premier League'})
+
+
+MATCH (a:Player), (b:Player) //Position relation
+WHERE id(a) < id(b) AND a.pos = b.pos
+CREATE (a)-[:HAS_SAME_POSITION]->(b)
+
+MATCH (a:Player), (b:Player) //Age relation
+WHERE id(a) < id(b) AND a.age = b.age
+CREATE (a)-[:SAME_AGE]->(b)

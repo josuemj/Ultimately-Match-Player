@@ -45,3 +45,6 @@ for i in range(1000):
             nodesIntructions.write(instruction+"\n")
             print(instruction)
             indexUsedList.append(randomIndex)
+
+
+            
